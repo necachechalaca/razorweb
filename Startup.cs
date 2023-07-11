@@ -58,4 +58,6 @@ namespace webapp
             });
         }
     }
+
+    // dotnet aspnet-codegenerator razorpage -m webapp.Article -dc webapp.MyWeb -outDir Pages/Blog -udl --referenceScriptLibraries
 }

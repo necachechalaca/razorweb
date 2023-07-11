@@ -1,0 +1,51 @@
+@page
+@model webapp.Pages_Blog.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+     int i=0;
+}
+
+<h1>Danh Sach Bai Viet</h1>
+<form method="get" asp-page="Blog/Index">  
+    <label> Tim kiem </label>
+    <input name = "SreachString" value=""  /> 
+    <button type="submit">Tim </button>
+</form>
+<p>
+    <a asp-page="Create" class=" btn btn-primary">Tao bai viet moi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th> STT</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article[0].Created)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead> 
+    <tbody>
+@foreach (var item in Model.Article) {
+        <tr>
+            <td>@(++i) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+           
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Chinh Sua</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Xem</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Xoa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
