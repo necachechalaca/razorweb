@@ -31,18 +31,9 @@ namespace webapp.Pages_Blog
                    
                  Article =   nquery.Where(a => a.Title.Contains(SreachString)).ToList();
                 }else{
-                    Article =   await nquery.ToListAsync();
+                 Article =   await nquery.ToListAsync();
 
                 }
-                
-                
-
-                 
-
-                
-              
- 
-            
 
         }
     }

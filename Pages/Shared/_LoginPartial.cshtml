@@ -1,0 +1,46 @@
+@using  Microsoft.AspNetCore.Identity
+@using webapp
+
+
+
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser>  UserManager
+
+@{
+   // SignInManager.IsSignedIn(User)
+  // UserManager.GetUserName(User)
+}
+
+
+
+
+<ul class="navbar-nav">
+@if(SignInManager.IsSignedIn(User))
+{
+
+<li>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manager/Index">
+          Xin chao  @UserManager.GetUserName(User)!
+        </a>
+    </li>
+    <li>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Logout">
+            Dang Xuat
+        </a>
+    </li>
+}else
+{
+<li>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">
+            dang ky
+        </a>
+    </li>
+    <li>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">
+            Dang Nhap
+        </a>
+    </li>
+}
+   
+</ul>

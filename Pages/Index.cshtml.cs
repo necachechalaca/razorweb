@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace webapp.Pages
 {
+    
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
